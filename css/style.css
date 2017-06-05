@@ -1,0 +1,40 @@
+*{
+	box-sizing: border-box;
+}
+body {
+	background-color: #0a729b;
+}
+
+.jumbotron {
+	margin-top: 5%;
+	background: #837c7c;
+}
+
+h1 {
+	text-align: center;
+	font-size: 85px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+#buttons-view {
+	margin-top: 5%;
+	margin-bottom: 5%;
+	text-align: center;
+
+}
+
+#movie-form {
+	text-align: center;
+	margin-top: 5%;
+	margin-bottom: 5%;
+
+}
+
+#movies-view {
+	display: inline-block;
+	margin: 5px;
+	border: 2px	solid black;
+
+
+}
