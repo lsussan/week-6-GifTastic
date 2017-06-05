@@ -34,7 +34,7 @@ h1 {
 #movies-view {
 	margin: 5px;
 	border: 2px	solid black;
-	display: inline-block;
+	align-items: flex-end;
 
 
 }
