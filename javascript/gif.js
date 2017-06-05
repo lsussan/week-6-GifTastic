@@ -3,31 +3,34 @@
   var movies = ["Pulp Fiction", "Step Brothers", "Reservoir Dogs", "Zoolander", "Old School", "Back to the Future", "Tropic Thunder", "Superbad", "Rocky", "Friday"];
   // display movie buttons on page
   $(document).on("click", ".movie", function() {
-    var movie = $(this).attr("data-name");
-    giphyAjax(movie);
-
-    // var state = $(this).attr('data-state');
-    //     if (state == "still"){
-    //         $(this).attr('src', $(this).data('animate'));
-    //         $(this).attr('data-state', 'animate');
-    //     }else{
-    //         $(this).attr('src', $(this).data('still'));
-    //         $(this).attr('data-state', 'still');
-    //     }
+        var movie = $(this).attr("data-name");
+        giphyAjax(movie);
 
   });
 
   $(document).on("click", ".search", function() {
-    event.preventDefault();
-    var movie = $("#movie-input").val().trim();
-    giphyAjax(movie);
-    $("#movie-input").val("");
-    var movieBtn = $("<button>");
-    movieBtn.addClass("movieBtn");
-    movieBtn.text(movie);
-    $("#buttons-view").append(movieBtn);
+      event.preventDefault();
+      var movie = $("#movie-input").val().trim();
+      giphyAjax(movie);
+      $("#movie-input").val("");
+      var movieBtn = $("<button>");
+      movieBtn.addClass("movieBtn");
+      movieBtn.text(movie);
+      $("#buttons-view").append(movieBtn);
+
+
   });
 
+$(document).on("click", ".image",function() {
+  var state = $(this).attr("data-state");
+  if (state == "still") {
+    $(this).attr("src", $(this).data("animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).data("still"));
+    $(this).attr("data-state", "still");
+  }
+});
 
 function giphyAjax(movie) {
   // Ajax call with the queryURL
@@ -63,6 +66,7 @@ function printMovieGifs(giphyData) {
     image.attr("data-still", giphyData[i].images.fixed_width_still.url);
     image.attr("data-animate", giphyData[i].images.fixed_width.url);
     image.attr("data-state", "still");
+    image.addClass("image");
 
     div.append(p);
     div.append(image);
@@ -74,23 +78,23 @@ function printMovieGifs(giphyData) {
 
 
   // function for displaying data
-  function renderButtons() {
-    // clear buttons
-    $("#buttons-view").empty();
-    // for loop for movies
-    for (var i = 0; i < movies.length; i++) {
-      // create var a and assign buttons
-      var a = $("<button>");
-      //add class .movie to var a
-      a.addClass("movie");
-      //
-      a.attr("data-name", movies[i]);
+function renderButtons() {
+  // clear buttons
+  $("#buttons-view").empty();
+  // for loop for movies
+  for (var i = 0; i < movies.length; i++) {
+    // create var a and assign buttons
+    var a = $("<button>");
+    //add class .movie to var a
+    a.addClass("movie");
+    //
+    a.attr("data-name", movies[i]);
 
-      a.text(movies[i]);
+    a.text(movies[i]);
 
-      $("#buttons-view").append(a);
+    $("#buttons-view").append(a);
 
-    }
   }
+}
 
-  renderButtons();
+renderButtons();

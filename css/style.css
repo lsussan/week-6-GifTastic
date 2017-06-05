@@ -32,9 +32,9 @@ h1 {
 }
 
 #movies-view {
-	display: inline-block;
 	margin: 5px;
 	border: 2px	solid black;
+	display: inline-block;
 
 
 }
